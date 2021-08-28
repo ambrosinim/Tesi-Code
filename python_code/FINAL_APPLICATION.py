@@ -1,3 +1,9 @@
+# ** FINAL APPLICATION: **
+#  - USER INTERFACE
+#  - PREDICTION OF THE INPUT IMAGE
+#  - ARDUINO COMMUNICATION
+
+
 from tensorflow.keras.models import load_model
 import cv2
 import numpy as np
@@ -6,10 +12,10 @@ import time
 import csv
 
 
-CLASSIC_MODEL = 'mobile_handsRGB_model.h5'  # unica pecca sul 9
-AUG_MODEL = 'AUG_mobile_handsRGB_model.h5'  # perfetta senza la riduzione di 1./255
-NEW_AUG = 'newAUG_mobile_handsRGB_model.h5'  # fantastica è stata fatta con subito l'augmentation
-SQ_64 = 'simple_squeeze_64batches.h5'  #state-of-the-art
+CLASSIC_MODEL = 'mobile_handsRGB_model.h5'
+AUG_MODEL = 'AUG_mobile_handsRGB_model.h5'
+NEW_AUG = 'newAUG_mobile_handsRGB_model.h5'
+SQ_64 = 'simple_squeeze_64batches.h5'
 
 # BEST OF
 BD_SQ16 = 'SQ16.h5'
@@ -89,19 +95,17 @@ def write_read(inp):
         print(string)
 
 
+# pay attention to COM number!
 arduino = serial.Serial(port='COM4', baudrate=9600, timeout=.5)
 
 cap = cv2.VideoCapture(0)
 
-last_index = np.zeros(5, dtype='int64') # per stabilizzare le previsioni prevedo di prendere il più frequente di 5 previoni (50ms)
+last_index = np.zeros(5, dtype='int64')  # per stabilizzare le previsioni prevedo di prendere il più frequente di 5 previoni (50ms)
 i = 0
 
 elapsed_row = []
 
 while True:
-
-    start_time = time.time()                       # START
-    elapsed = 0
 
     ret, frame = cap.read()
     if not ret:
@@ -119,12 +123,21 @@ while True:
 
     image = image.astype('float32')
     image /= 255
-    #print(image.shape)
-
-
+    # print(image.shape)
 
     # predict the move made
+    # we want to measure thw time elapsed in one prediction
+    start_time = time.time()                       # START
+    elapsed = 0
+
     prediction = model.predict(image)
+
+    elapsed = elapsed + time.time() - start_time  # STOP
+
+    # we save in a csv file named "extime.csv" the execution time of one prediction to calculate its mean value
+    # write a row to the csv file
+    elapsed = elapsed*1000
+    elapsed_row.append(elapsed)
 
     pred_index = np.argmax(prediction[0])
 
@@ -132,12 +145,14 @@ while True:
     i += 1
     if i == 5:
         i = 0
+    # we take the most frequent number predicted between the last five predictions to make it more robust
     pred_index = np.bincount(last_index).argmax()
     pred_num = mapper(pred_index)
 
-    # Taking input from user
+    # Taking input from user and sending it to Arduino
     write_read(pred_index)
 
+    # Set the graphic's features
     font = cv2.FONT_HERSHEY_SIMPLEX
     cv2.putText(frame, "Your Number: " + pred_num,
                 (50, 50), font, 1.2, (255, 255, 255), 2, cv2.LINE_AA)
@@ -147,22 +162,12 @@ while True:
     cv2.imshow("NUM", frame)
     k = cv2.waitKey(1)
 
-    elapsed = elapsed + time.time() - start_time  # STOP
-
-
-
-    # write a row to the csv file
-    elapsed = elapsed*1000
-    elapsed_row.append(elapsed)
-
-
     if k == ord('q'):
         break
 
 with open("extime.csv", "w") as file:
     writer = csv.writer(file, delimiter='\n')
     writer.writerow(elapsed_row)
-
 
 
 cap.release()
