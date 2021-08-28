@@ -1,7 +1,6 @@
 /* Arduino Application to parse an input string such as "s/3*206/f" and actuate a robot arm with 3 Servos to reach a selected station
- *  URL github reference: 
- *  Tesi di Laurea Triennale in Ingegneria dell'Automazione Bologna
- *  Matteo Ambrosini
+ *  Complete project:
+ *  URL github reference: https://github.com/ma-tesi/Tesi-Code
 */
 
 #include <Servo.h> //Inserire la libreria Servo
@@ -38,7 +37,7 @@ void traj_back(Servo &servo, int current_position);
 void traj_down(Servo &servo = Servo2);
 void close_gripper(Servo &servo = Servo3);
 void traj_lift(Servo &servo = Servo2);
-uint8_t traj_station(Servo &servo, int selected);
+void traj_station(Servo &servo, int selected, int *current_position);
 void open_gripper(Servo &servo = Servo3);
 
 void setup() {
@@ -139,7 +138,7 @@ void loop() {
     traj_lift();
     
     Serial.println("traj_station " + (String)in_number);
-    current_position = traj_station( Servo1, in_number);
+    traj_station(Servo1, in_number, &current_position);
     
     Serial.println("open_gripper");
     open_gripper();
@@ -192,14 +191,14 @@ void traj_lift(Servo &servo = Servo2){
     }
 }
 
-uint8_t traj_station(Servo &servo, int selected){
+void traj_station(Servo &servo, int selected, int *current_position){  // Passing current_position by address (side effect same as return)
   //Servo1
     volatile int limit = 181/selected;
     for(int i=0;i<limit;i++){
       servo.write(i);
       delay(20);
     }
-    return limit-1;
+    *current_position = limit-1;
 }
 
 void open_gripper(Servo &servo = Servo3){ 
