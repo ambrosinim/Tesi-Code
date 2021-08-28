@@ -7,8 +7,8 @@ Cartelle nella Repository e contenuto:
   - Modelli (ad eccezione dei VGG16)
   - Codice per il testing dei modelli
   - Codice per il plotting dell Confusion Matrices
-  - Codice per la formazione di un dataset (traing o testing)
+  - Codice per la formazione di un dataset (training o testing)
 - More models:
-  alcuni dei modelli ottenuti durante il traing, meno performanti di quelli contenuti in Python Code
+  alcuni dei modelli ottenuti durante il training, meno performanti di quelli contenuti in Python Code
 - Jupiter notebooks for training:
-  Notebooks in cui è presentato il traing dei modelli più performanti
+  Notebooks in cui è presentato il training dei modelli più performanti
