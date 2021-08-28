@@ -12,4 +12,4 @@ Cartelle nella Repository e contenuto:
   alcuni dei modelli ottenuti durante il training, meno performanti di quelli contenuti in Python Code
 - Jupiter notebooks for training:
   Notebooks in cui è presentato il training dei modelli più performanti.
-  ### Traing dataset: https://github.com/ma-tesi/hands_dataset.git
+### Traing dataset: https://github.com/ma-tesi/hands_dataset.git
