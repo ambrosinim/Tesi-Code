@@ -21,10 +21,10 @@ I jupyter notebooks includono già l'accesso al dataset su cui è stato effettua
 **Traing dataset:** https://github.com/ma-tesi/hands_dataset.git
 # Testing Finale
 il testing finale può esssere svolto lavorando nella cartella Python Code seguendo questi passaggi:
-1. aprire ed eseguire il file testpickle.py che genera i file X_test.pickle e Y_test.pickle a partire dalla cartella Test Data. I file generati contengono rispettivamente gli input del testing e le relative labels corrette;
-2. aprire ed eseguire il file test.py che stampa le informazioni relative alle prestazioni di ciascun modello e le confusion matrices.
+1. aprire ed eseguire il file **testpickle.py** che genera i file **X_test.pickle** e **Y_test.pickle** a partire dalla cartella Test Data. I file generati contengono rispettivamente gli input del testing e le relative labels corrette;
+2. aprire ed eseguire il file **test.py** che stampa le informazioni relative alle prestazioni di ciascun modello e le confusion matrices.
 
-Occorre prestare attenzione al path contenuto in IMG_SAVE_PATH.
+Occorre prestare attenzione al path contenuto in **IMG_SAVE_PATH**.
 
 #### Raccogliere immagini personali
 Ulteriori test possono essere compiuti utilizzando l'applicazione gather_testimages.py che aggiunge le immagini raccolte a quelle già presenti nella cartella Test Data.
