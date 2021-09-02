@@ -1,28 +1,22 @@
-desc = '''Script to gather data images with a particular label.
-Usage: python gather_images.py <label_name> <num_samples>
-The script will collect <num_samples> number of images and store them
-in its own directory.
-Only the portion of the image within the box displayed
-will be captured and stored.
-Press 'a' to start/pause the image collecting process.
-Press 'q' to quit.
-'''
-
+import tensorflow as tf
 import cv2
-import os
+import numpy as np
 import sys
+import os
+import time
 
 try:
     label_name = sys.argv[1]
     num_samples = int(sys.argv[2])
 except:
     print("Arguments missing.")
-    print(desc)
+
     exit(-1)
 
-IMG_SAVE_PATH = 'image_data'
+IMG_SAVE_PATH = 'Test_data'
 IMG_CLASS_PATH = os.path.join(IMG_SAVE_PATH, label_name)
 
+i = 0
 try:
     os.mkdir(IMG_SAVE_PATH)
 except FileExistsError:
@@ -32,9 +26,14 @@ try:
 except FileExistsError:
     print("{} directory already exists.".format(IMG_CLASS_PATH))
     print("All images gathered will be saved along with existing items in this folder")
+    list_files = os.listdir(IMG_CLASS_PATH)
+    list_noextension = [el.split('.')[0] for el in list_files]
+    integer_map = map(int, list_noextension)
+    integer_list = list(integer_map)
+    i = max(integer_list)
 
 cap = cv2.VideoCapture(0)
-
+print(i)
 start = False
 count = 0
 
@@ -50,7 +49,7 @@ while True:
 
     if start:
         roi = frame[200:500, 200:500]
-        save_path = os.path.join(IMG_CLASS_PATH, '{}.jpg'.format(count + 1))
+        save_path = os.path.join(IMG_CLASS_PATH, '{}.jpg'.format(i+count + 1))
         cv2.imwrite(save_path, roi)
         count += 1
 
@@ -60,6 +59,7 @@ while True:
     cv2.imshow("Collecting images", frame)
 
     k = cv2.waitKey(10)
+    time.sleep(1.0)
     if k == ord('a'):
         start = not start
     if k == ord('s'):
@@ -70,3 +70,5 @@ while True:
 print("\n{} image(s) saved to {}".format(count, IMG_CLASS_PATH))
 cap.release()
 cv2.destroyAllWindows()
+
+
