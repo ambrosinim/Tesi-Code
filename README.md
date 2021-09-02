@@ -31,6 +31,5 @@ L'applicazione **gather_testimages.py** deve essere lanciata da **prompt** posiz
 Nel nostro caso, dopo essersi posizionati nella cartella Python code è opportuno scrivere il seguente comando:
 
 **python gather_testimages.py label number_of_samples**.
-Ad esempio, il comando:
-"**python gather_testimages.py three 10**"
-raccoglie 10 immagini nella cartella "three" che si trova (o viene creata) all'interno della cartella a cui fa riferimento IMG_SAVE_PATH.
+
+Ad esempio, il comando: "**python gather_testimages.py three 10**" raccoglie 10 immagini nella cartella "three" che si trova (o viene creata) all'interno della cartella a cui fa riferimento IMG_SAVE_PATH.
