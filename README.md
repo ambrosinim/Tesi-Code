@@ -17,6 +17,7 @@ Cartelle nella Repository e contenuto:
 # Training
 Per eseguire modifiche sl training dei modelli è consigliata l'apertura su Colab (https://research.google.com/colaboratory/)
 I jupyter notebooks includono già l'accesso al dataset su cui è stato effettuato il traing, validatione e testing.
+
 **Traing dataset:** https://github.com/ma-tesi/hands_dataset.git
 # Testing Finale
 il testing finale può esssere svolto lavorando nella cartella Python Code seguendo questi passaggi:
