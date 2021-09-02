@@ -5,9 +5,9 @@ Cartelle nella Repository e contenuto:
 - Python Code:  
   - Codice Python per l'applicazione PC
   - Modelli (ad eccezione dei VGG16)
-  - Codice per il testing dei modelli
+  - Applicazione per il testing dei modelli
   - Codice per il plotting dell Confusion Matrices
-  - Codice per la formazione di un dataset (training o testing)
+  - Applicazione per la formazione di un dataset (training o testing)
 - More models:
   alcuni dei modelli ottenuti durante il training, meno performanti di quelli contenuti in Python Code
 - Jupyter notebooks for training:
@@ -15,7 +15,7 @@ Cartelle nella Repository e contenuto:
 
 
 # Training
-Per eseguire modifiche sl training dei modelli è consigliata l'apertura su Colab (https://research.google.com/colaboratory/).
+Per eseguire modifiche al training dei modelli è consigliata l'apertura su Colab (https://research.google.com/colaboratory/).
 I jupyter notebooks includono già l'accesso al dataset su cui è stato effettuato il traing, validatione e testing.
 
 **Traing dataset:** https://github.com/ma-tesi/hands_dataset.git
@@ -23,6 +23,8 @@ I jupyter notebooks includono già l'accesso al dataset su cui è stato effettua
 il testing finale può esssere svolto lavorando nella cartella Python Code seguendo questi passaggi:
 1. aprire ed eseguire il file testpickle.py che genera i file X_test.pickle e Y_test.pickle a partire dalla cartella Test Data. I file generati contengono rispettivamente gli input del testing e le relative labels corrette;
 2. aprire ed eseguire il file test.py che stampa le informazioni relative alle prestazioni di ciascun modello e le confusion matrices.
+
+Occorre prestare attenzione al path contenuto in IMG_SAVE_PATH.
 
 #### Raccogliere immagini personali
 Ulteriori test possono essere compiuti utilizzando l'applicazione gather_testimages.py che aggiunge le immagini raccolte a quelle già presenti nella cartella Test Data.
