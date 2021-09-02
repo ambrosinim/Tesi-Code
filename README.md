@@ -29,5 +29,8 @@ Ulteriori test possono essere compiuti utilizzando l'applicazione gather_testima
 Cambiando il percorso di salvataggio delle immagini contenuto in **IMG_SAVE_PATH** è possibile creare un proprio dataset di testing.
 L'applicazione **gather_testimages.py** deve essere lanciata da **prompt** posizionandosi nella directory in cui sono contenute l'applicazione e la cartella in cui si vogliono salvare le immagini raccolte.
 Nel nostro caso, dopo essersi posizionati nella cartella Python code è opportuno scrivere il seguente comando:
-**python gather_testimages.py label number_of_samples**
-ad esempio, il comando "**python gather_testimages.py three 10**" raccoglie 10 immagini nella cartella "three" che si trova (o viene creata) all'interno della cartella a cui fa riferimento IMG_SAVE_PATH.
+
+**python gather_testimages.py label number_of_samples**.
+Ad esempio, il comando:
+"**python gather_testimages.py three 10**"
+raccoglie 10 immagini nella cartella "three" che si trova (o viene creata) all'interno della cartella a cui fa riferimento IMG_SAVE_PATH.
