@@ -33,11 +33,16 @@ int n =0;
 uint8_t crc8( uint8_t *addr, uint8_t len);
 uint8_t Compute_CRC8(uint8_t *bytes, int len);
 
-void traj_back(Servo &servo, int current_position);
+void traj_back( int current_position, Servo &servo = Servo1);
+
 void traj_down(Servo &servo = Servo2);
+
 void close_gripper(Servo &servo = Servo3);
+
 void traj_lift(Servo &servo = Servo2);
-void traj_station(Servo &servo, int selected, int *current_position);
+
+void traj_station(int num_selected, int *current_position, Servo &servo = Servo1);
+
 void open_gripper(Servo &servo = Servo3);
 
 void setup() {
@@ -125,24 +130,22 @@ void loop() {
     Serial.println('n');
     
     Serial.println("traj_back");
-    traj_back(Servo1, current_position);
-    
-    
-    Serial.println("traj_down");
-    traj_down();
+    traj_back(current_position, Servo1);
 
     Serial.println("close_gripper");
-    close_gripper();
+    close_gripper(Servo3);
     
     Serial.println("traj_lift");
-    traj_lift();
+    traj_lift(Servo2);
     
     Serial.println("traj_station " + (String)in_number);
-    traj_station(Servo1, in_number, &current_position);
+    traj_station(in_number, &current_position, Servo1);
+
+    Serial.println("traj_down");
+    traj_down(Servo2);
     
     Serial.println("open_gripper");
-    open_gripper();
-    
+    open_gripper(Servo3);
     
   }
 
@@ -161,7 +164,7 @@ void loop() {
 /* /// FUNCTIONS DECLARATION /// */
 
 
-void traj_back(Servo &servo, int current_position){
+void traj_back( int current_position, Servo &servo = Servo1){
   //Servo1
   for(int i = current_position; i>=0; i--){
         servo.write(i);
@@ -191,9 +194,9 @@ void traj_lift(Servo &servo = Servo2){
     }
 }
 
-void traj_station(Servo &servo, int selected, int *current_position){  // Passing current_position by address (side effect same as return)
+void traj_station(int num_selected, int *current_position, Servo &servo = Servo1){  // Passing current_position by address (side effect same as return)
   //Servo1
-    volatile int limit = 181/selected;
+    volatile int limit = 30*(1 + num_selected);
     for(int i=0;i<limit;i++){
       servo.write(i);
       delay(20);
