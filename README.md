@@ -9,7 +9,7 @@ Cartelle nella Repository e contenuto:
   - Codice per il plotting dell Confusion Matrices
   - Applicazione per la formazione di un dataset (training o testing)
 - More models:
-   - alcuni dei modelli ottenuti durante il training, meno performanti di quelli contenuti in Python Code
+   - Alcuni dei modelli ottenuti durante il training, meno performanti di quelli contenuti in Python Code
 - Jupyter notebooks for training:
   - Notebooks in cui è presentato il training dei modelli più performanti.
 
