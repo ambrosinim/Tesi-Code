@@ -1,5 +1,5 @@
 # Tesi-Code
-Cartelle nella Repository e contenuto:
+### Cartelle nella Repository e contenuto:
 - Braccio_arduino_finalcode:
   - Codice C++ Arduino per comunicare con il PC e muovere il braccio controllando i 3 servomotori.
 - Python Code:
