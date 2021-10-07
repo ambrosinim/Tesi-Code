@@ -37,3 +37,5 @@ Nel nostro caso, dopo essersi posizionati nella cartella Python code è opportun
 Ad esempio, il comando: "**python gather_testimages.py three 10**" raccoglie 10 immagini nella cartella "three" che si trova (o viene creata) all'interno della cartella a cui fa riferimento IMG_SAVE_PATH all'interno di gather_testimages.py.
 
 Le immagini raccolte con questo metodo possono essere eventualmente impiegate anche per la formazione o l'ampliamento di un datset di training.
+# Esempio:
+![NUM 18_07_2021 15_53_17](https://user-images.githubusercontent.com/79223382/136415970-91a7821f-2ae7-46ae-ac63-1863fab07f27.png)
