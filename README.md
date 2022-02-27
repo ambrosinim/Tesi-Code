@@ -38,6 +38,6 @@ For instance: "**python gather_testimages.py three 10**" gathers 10 images in th
 
 The newly gathered images can also be used to update the traing dataset.
 
-Finally it is possible to test the application in real time with the application
+Finally it is possible to test the application in real time with the FINAL_APPLICATION by commenting out the Arduino communication lines.
 # Example of inference:
 ![NUM 18_07_2021 15_53_17](https://user-images.githubusercontent.com/79223382/136415970-91a7821f-2ae7-46ae-ac63-1863fab07f27.png)
