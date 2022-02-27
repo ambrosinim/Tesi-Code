@@ -1,7 +1,7 @@
 # Tesi-Code
 ### Folders in Repository and content:
 - Braccio_arduino_finalcode:
-  - C++ Arduino cod e for communication with the PC and actuate the small robotic arm through 3 servos.
+  - C++ Arduino code for communication with the PC and actuate the small robotic arm through 3 servos.
 - Python Code:
   - Python PC application
   - Squeezenet and MobileNet models (no VGG16 models)
@@ -37,5 +37,7 @@ In my case, after positioning in the "Python code" folder I insert the following
 For instance: "**python gather_testimages.py three 10**" gathers 10 images in the folder "three" that gets created (if doesn't exist already) inside the folder pointed by "IMG_SAVE_PATH".
 
 The newly gathered images can also be used to update the traing dataset.
-# Example:
+
+Finally it is possible to test the application in real time with the application
+# Example of inference:
 ![NUM 18_07_2021 15_53_17](https://user-images.githubusercontent.com/79223382/136415970-91a7821f-2ae7-46ae-ac63-1863fab07f27.png)
