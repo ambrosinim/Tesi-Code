@@ -1,41 +1,41 @@
 # Tesi-Code
-### Cartelle nella Repository e contenuto:
+### Folders in Repository and content:
 - Braccio_arduino_finalcode:
-  - Codice C++ Arduino per comunicare con il PC e muovere il braccio controllando i 3 servomotori.
+  - C++ Arduino cod e for communication with the PC and actuate the small robotic arm through 3 servos.
 - Python Code:
-  - Codice Python per l'applicazione PC
-  - Modelli (ad eccezione dei VGG16)
-  - Applicazione per il testing dei modelli
-  - Codice per il plotting dell Confusion Matrices
-  - Applicazione per la formazione di un dataset (training o testing)
+  - Python PC application
+  - Squeezenet and MobileNet models (no VGG16 models)
+  - Testing application
+  - Confusion Matrices plotting
+  - Snippets for the training and testing datasets formation
 - More models:
-   - Alcuni dei modelli ottenuti durante il training, meno performanti di quelli contenuti in Python Code
-- Jupyter notebooks for training:
-  - Notebooks in cui è presentato il training dei modelli più performanti.
+   - Other trained models, less performant than the ones in "Python Code"
+- Jupyter (Colab) notebooks for training:
+  - Notebooks keeping track of the training of the main models.
 
 
 # Training
-Per eseguire modifiche al training dei modelli è consigliata l'apertura su Colab (https://research.google.com/colaboratory/).
-I jupyter notebooks includono già l'accesso al dataset su cui è stato effettuato il traing, validatione e testing.
+To execute further training with the same GitHub setup to access the dataset is suggested the use of Colab (https://research.google.com/colaboratory/).
+The acess to the dataset is already present in the Jupyter notebooks.
 
 **Traing dataset:** https://github.com/ma-tesi/hands_dataset.git
 # Testing Finale
-il testing finale può esssere svolto lavorando in locale nella cartella Python Code seguendo questi passaggi:
-1. aprire ed eseguire il file **testpickle.py** che genera i file **X_test.pickle** e **Y_test.pickle** a partire dalla cartella Test Data. I file generati contengono rispettivamente gli input del testing e le relative labels corrette;
-2. aprire ed eseguire il file **test.py** che stampa le informazioni relative alle prestazioni di ciascun modello e le confusion matrices.
+The testing process can be executed by working on your architecture by downloading the folder "Python Code" and by these following steps:
+1.open and execute **testpickle.py** that creates the files **X_test.pickle** and **Y_test.pickle** inside the folder "Test Data". Those files consist in the test inputs and the corresponding true labels;
+2. open and execute **test.py** that prints out the performance of each model and their confusion matrices.
 
-Occorre prestare attenzione al path contenuto in **IMG_SAVE_PATH**.
+Before executing pay attention to the path pointed by **IMG_SAVE_PATH** and eventually fix it.
 
 #### Raccogliere immagini personali
-Ulteriori test possono essere compiuti utilizzando l'applicazione gather_testimages.py che aggiunge le immagini raccolte a quelle già presenti nella cartella Test Data.
-Cambiando il percorso di salvataggio delle immagini contenuto in **IMG_SAVE_PATH** è possibile creare un proprio dataset di testing.
-L'applicazione **gather_testimages.py** deve essere lanciata da **prompt** posizionandosi nella directory in cui sono contenute l'applicazione e la cartella in cui si vogliono salvare le immagini raccolte.
-Nel nostro caso, dopo essersi posizionati nella cartella Python code è opportuno scrivere il seguente comando:
+Further tests can be carried out by using the application "gather_testimages.py" that adds new gathered images to the "Test Data" folder without overwriting.
+Eventually a totally new dataset can be created by changing the **IMG_SAVE_PATH** path.
+The **gather_testimages.py** program must be launched from **prompt** command line by positioning in the directory containing the application together with the testing images folder.
+In my case, after positioning in the "Python code" folder I insert the following command:
 
 **python gather_testimages.py label number_of_samples**.
 
-Ad esempio, il comando: "**python gather_testimages.py three 10**" raccoglie 10 immagini nella cartella "three" che si trova (o viene creata) all'interno della cartella a cui fa riferimento IMG_SAVE_PATH all'interno di gather_testimages.py.
+For instance: "**python gather_testimages.py three 10**" gathers 10 images in the folder "three" that gets created (if doesn't exist already) inside the folder pointed by "IMG_SAVE_PATH".
 
-Le immagini raccolte con questo metodo possono essere eventualmente impiegate anche per la formazione o l'ampliamento di un datset di training.
-# Esempio:
+The newly gathered images can also be used to update the traing dataset.
+# Example:
 ![NUM 18_07_2021 15_53_17](https://user-images.githubusercontent.com/79223382/136415970-91a7821f-2ae7-46ae-ac63-1863fab07f27.png)
