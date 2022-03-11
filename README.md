@@ -26,7 +26,7 @@ The testing process can be executed by working on your architecture by downloadi
 
 Before executing pay attention to the path pointed by **IMG_SAVE_PATH** and eventually fix it.
 
-#### Raccogliere immagini personali
+#### Take your own images
 Further tests can be carried out by using the application "gather_testimages.py" that adds new gathered images to the "Test Data" folder without overwriting.
 Eventually a totally new dataset can be created by changing the **IMG_SAVE_PATH** path.
 The **gather_testimages.py** program must be launched from **prompt** command line by positioning in the directory containing the application together with the testing images folder.
