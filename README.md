@@ -19,7 +19,7 @@ To execute further training with the same GitHub setup to access the dataset is 
 The acess to the dataset is already present in the Jupyter notebooks.
 
 **Traing dataset:** https://github.com/ma-tesi/hands_dataset.git
-# Testing Finale
+# Final Testing
 The testing process can be executed by working on your architecture by downloading the folder "Python Code" and by these following steps:
 1.open and execute **testpickle.py** that creates the files **X_test.pickle** and **Y_test.pickle** inside the folder "Test Data". Those files consist in the test inputs and the corresponding true labels;
 2. open and execute **test.py** that prints out the performance of each model and their confusion matrices.
